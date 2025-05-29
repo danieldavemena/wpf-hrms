@@ -1,0 +1,58 @@
+﻿<Window x:Class="wpf_hrms.StartPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_hrms"
+        xmlns:vm="clr-namespace:wpf_hrms.ViewModels"
+        xmlns:views="clr-namespace:wpf_hrms.Views"
+        mc:Ignorable="d"
+        Title="Dashboard" Height="768" Width="1366"
+        WindowState="Maximized"
+        WindowStyle="None"  >
+    
+    <Grid Background="#5955B3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="245"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel HorizontalAlignment="Center" Width="140">
+            <StackPanel.Resources>
+                <Style TargetType="DockPanel">
+                    <Setter Property="Margin" Value="0,0,0,20"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <Label FontSize="35" FontWeight="Bold" Foreground="White" Margin="0,30,0,100">Logo</Label>
+            <DockPanel MouseLeftButtonUp="DockPanel_MouseLeftButtonUp">
+                <Label Foreground="White" FontSize="20" FontWeight="DemiBold">Dashboard</Label>
+            </DockPanel>
+            <DockPanel MouseLeftButtonUp="DockPanel_MouseLeftButtonUp_1">
+                <Label Foreground="White" FontSize="20" FontWeight="DemiBold">Credentials</Label>
+            </DockPanel>
+            <DockPanel>
+                <Label Foreground="White" FontSize="20" FontWeight="DemiBold">Attendance</Label>
+            </DockPanel>
+            <DockPanel>
+                <Label Foreground="White" FontSize="20" FontWeight="DemiBold">Vacancies</Label>
+            </DockPanel>
+        </StackPanel>
+
+
+
+        <Border CornerRadius="20" Grid.Column="1" Margin="10,10,10,10" Background="White">
+            <Border.Resources>
+                <DataTemplate DataType="{x:Type vm:CredentialsPageViewModel}">
+                    <views:CredentialsPage/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
+                    <views:Dashboard/>
+                </DataTemplate>
+
+            </Border.Resources>
+
+            <ContentControl x:Name="Page"/>
+        </Border>
+    </Grid>
+</Window>
