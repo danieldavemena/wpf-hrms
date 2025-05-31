@@ -31,10 +31,10 @@
             <DockPanel MouseLeftButtonUp="DockPanel_MouseLeftButtonUp_1">
                 <Label Foreground="White" FontSize="20" FontWeight="DemiBold">Credentials</Label>
             </DockPanel>
-            <DockPanel>
+            <DockPanel MouseLeftButtonUp="DockPanel_MouseLeftButtonUp_2">
                 <Label Foreground="White" FontSize="20" FontWeight="DemiBold">Attendance</Label>
             </DockPanel>
-            <DockPanel>
+            <DockPanel >
                 <Label Foreground="White" FontSize="20" FontWeight="DemiBold">Vacancies</Label>
             </DockPanel>
         </StackPanel>
@@ -49,10 +49,13 @@
                 <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
                     <views:Dashboard/>
                 </DataTemplate>
-
+                <DataTemplate DataType="{x:Type vm:VacanciesPageViewModel}">
+                    <views:VacanciesPage/>
+                </DataTemplate>
             </Border.Resources>
 
-            <ContentControl x:Name="Page"/>
+            <ContentControl x:Name="Page"/> 
+            <!--<views:VacanciesPage/>-->
         </Border>
     </Grid>
 </Window>

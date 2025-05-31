@@ -22,7 +22,7 @@ namespace wpf_hrms
     public partial class StartPage : Window
     {
         CredentialsPage credsPage = new CredentialsPage();
-
+        VacanciesPage vacanciesPage = new VacanciesPage();
 
         public StartPage()
         {
@@ -39,6 +39,11 @@ namespace wpf_hrms
         private void DockPanel_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
         {
             Page.Content = new CredentialsPageViewModel(credsPage);
+        }
+
+        private void DockPanel_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
+        {
+            Page.Content = new VacanciesPageViewModel(vacanciesPage);
         }
     }
 }

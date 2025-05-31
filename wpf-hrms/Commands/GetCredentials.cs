@@ -79,6 +79,7 @@ namespace wpf_hrms.Commands
                         string _address = reader.GetString(reader.GetOrdinal("address"));
                         string _email = reader.GetString(reader.GetOrdinal("email"));
                         string _phone = reader.GetString(reader.GetOrdinal("phone"));
+                        string _role = reader.GetString(reader.GetOrdinal("role"));
 
                         Border bd = new Border
                         {
@@ -91,6 +92,7 @@ namespace wpf_hrms.Commands
 
                         Grid gd = new Grid();
 
+                        gd.ColumnDefinitions.Add(new ColumnDefinition());
                         gd.ColumnDefinitions.Add(new ColumnDefinition());
                         gd.ColumnDefinitions.Add(new ColumnDefinition());
                         gd.ColumnDefinitions.Add(new ColumnDefinition());
@@ -150,6 +152,15 @@ namespace wpf_hrms.Commands
                         Grid.SetColumn(email, 4);
                         gd.Children.Add(email);
 
+                        Label role = new Label
+                        {
+                            VerticalAlignment = VerticalAlignment.Center,
+                            HorizontalAlignment = HorizontalAlignment.Center,
+                            FontSize = 15,
+                            Content = reader.GetString("role")
+                        };
+                        Grid.SetColumn(role, 5);
+                        gd.Children.Add(role);
 
                         DockPanel dp = new DockPanel
                         {
@@ -185,7 +196,8 @@ namespace wpf_hrms.Commands
                                 Age = _age,
                                 Address = _address,
                                 Email = _email,
-                                Phone = _phone
+                                Phone = _phone,
+                                Role = _role
                             };
 
 
@@ -202,7 +214,7 @@ namespace wpf_hrms.Commands
                         dp.Children.Add(edit);
                         dp.Children.Add(delete);
 
-                        Grid.SetColumn(dp, 5);
+                        Grid.SetColumn(dp, 6);
                         gd.Children.Add(dp);
                         _credentialsPage.credsContainer.Children.Add(bd);
 

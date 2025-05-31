@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="wpf_hrms.Views.VacanciesPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:wpf_hrms.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Loaded="UserControl_Loaded"
+             >
+    <Grid Margin="4" >
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <DockPanel LastChildFill="False" Grid.Row="0"   Margin="10" >
+
+                <Label Foreground="#5955B3" FontSize="25" FontWeight="Bold" DockPanel.Dock="Left">
+                    Role Vacancies
+                </Label>
+
+                <Button Click="Button_Click" DockPanel.Dock="Right" Width="50" Height="50" >Add</Button>
+            </DockPanel>
+            <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <WrapPanel Margin="25"  x:Name="rolesDisplay" Orientation="Horizontal">
+    
+
+                </WrapPanel>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</UserControl>
